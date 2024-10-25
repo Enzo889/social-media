@@ -60,7 +60,7 @@
   .container {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 12px;
     align-items: start;
     justify-content: start;
     width: 100%;
@@ -151,8 +151,8 @@
     cursor: pointer;
   }
 
-  .container:has(input:focus) .buttons,
-  .container:has(input:focus) select {
+  .container:has(input:valid, input:focus) .buttons,
+  .container:has(input:valid, input:focus) select {
     display: flex;
   }
 </style>
