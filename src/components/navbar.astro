@@ -23,7 +23,7 @@
     margin: 0;
     list-style: none;
     display: flex;
-    gap: 0.5rem;
+    gap: 1.5rem;
   }
 
   a {
@@ -34,4 +34,21 @@
       color: var(--grey1);
     }
   }
+
+  a.active {
+    color: var(--grey1);
+  }
 </style>
+
+<script>
+  const navItems = document.querySelectorAll("a");
+
+  navItems.forEach((item) => {
+    item.addEventListener("click", function () {
+      // Remover la clase 'active' de todos los ítems
+      navItems.forEach((nav) => nav.classList.remove("active"));
+      // Agregar la clase 'active' al ítem seleccionado
+      this.classList.add("active");
+    });
+  });
+</script>
