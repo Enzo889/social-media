@@ -111,6 +111,10 @@
     width: 100%;
     max-width: var(--sidebar-width);
     justify-content: end;
+    position: sticky;
+    top: 0;
+    height: fit-content;
+    z-index: 999;
   }
 
   ul {
@@ -149,6 +153,23 @@
     color: var(--grey1);
     & svg {
       color: var(--grey1);
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    aside {
+      bottom: 0;
+      z-index: 1000;
+      background-color: var(--backgroundColor);
+      order: 2;
+      box-shadow: 0 -1px 0 var(--transparentBorder);
+      max-width: none;
+      align-items: center;
+      justify-content: center;
+    }
+
+    ul {
+      flex-direction: row;
     }
   }
 </style>

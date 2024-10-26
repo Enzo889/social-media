@@ -8,7 +8,9 @@ import Feed from "../components/feed.astro";
 
 <Layout title="Welcome to Astro.">
   <main>
-    <Sidebar />
+    <div class="sidebar">
+      <Sidebar />
+    </div>
     <section>
       <Navbar />
       <Post />
@@ -21,9 +23,10 @@ import Feed from "../components/feed.astro";
   main {
     display: flex;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     justify-content: center;
-    max-width: 1020px;
+    max-width: 1420px;
+    position: relative;
   }
   section {
     width: 100%;
@@ -36,5 +39,14 @@ import Feed from "../components/feed.astro";
     flex-direction: column;
     position: relative;
     min-height: 100vh;
+  }
+
+  @media screen and (max-width: 768px) {
+    .sidebar {
+      position: fixed;
+      bottom: 0;
+      z-index: 999;
+      width: 100%;
+    }
   }
 </style>

@@ -149,18 +149,19 @@ import { FeedData } from "../constants/data.ts";
     display: flex;
     gap: 1rem;
     padding: 20px 24px;
+    border-bottom: 1px solid var(--secondaryBorderColor);
   }
 
   .content {
     display: flex;
     flex-direction: column;
-    gap: 0.1rem;
     width: 100%;
   }
   .profile img {
     width: 48px;
     height: 48px;
     border-radius: 50%;
+    object-fit: cover 50%;
   }
 
   .account {
@@ -179,6 +180,9 @@ import { FeedData } from "../constants/data.ts";
     margin: 0;
 
     & p {
+      color: var(--grey2);
+      white-space: pre-line;
+      word-break: break-word;
       text-wrap: pretty;
     }
   }
