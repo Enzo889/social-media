@@ -1,106 +1,228 @@
-<main class="container">
-  <div class="profile">
-    <img src="src/assets/profile.png" alt="profile img" />
-  </div>
-  <div class="account">
-    <p>name</p>
-    <p>@username</p>
-    <p>·</p>
-    <p>1h</p>
-  </div>
-  <div class="content">
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt facilis
-      esse vero, exercitationem delectus molestias corrupti quaerat incidunt,
-      corporis quasi dolores, ut autem suscipit?
-    </p>
-  </div>
-  <div class="butttons">
-    <button
-      ><svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        class="icon icon-tabler icons-tabler-outline icon-tabler-message-circle"
-        ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
-          d="M3 20l1.3 -3.9c-2.324 -3.437 -1.426 -7.872 2.1 -10.374c3.526 -2.501 8.59 -2.296 11.845 .48c3.255 2.777 3.695 7.266 1.029 10.501c-2.666 3.235 -7.615 4.215 -11.574 2.293l-4.7 1"
-        ></path></svg
-      ></button
-    ><p>1</p>
-    <button
-      ><svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        class="icon icon-tabler icons-tabler-outline icon-tabler-refresh"
-        ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
-          d="M20 11a8.1 8.1 0 0 0 -15.5 -2m-.5 -4v4h4"></path><path
-          d="M4 13a8.1 8.1 0 0 0 15.5 2m.5 4v-4h-4"></path></svg
-      ></button
-    ><p>1</p>
-    <button
-      ><svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        class="icon icon-tabler icons-tabler-outline icon-tabler-heart"
-        ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
-          d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572"
-        ></path></svg
-      ></button
-    ><p>1</p>
-    <button
-      ><svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        class="icon icon-tabler icons-tabler-outline icon-tabler-bookmark"
-        ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
-          d="M18 7v14l-6 -4l-6 4v-14a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4z"
-        ></path></svg
-      ></button
-    ><p>1</p>
-    <button
-      ><svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        class="icon icon-tabler icons-tabler-outline icon-tabler-dots"
-        ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
-          d="M5 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"></path><path
-          d="M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"></path><path
-          d="M19 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"></path></svg
-      ></button
-    >
-  </div>
-</main>
+---
+import { FeedData } from "../constants/data.ts";
+---
+
+{
+  FeedData.map((feed) => (
+    <main class="container">
+      <div class="profile">
+        <img src={feed.profile} alt="profile img" />
+      </div>
+      <div class="content">
+        <div class="account">
+          <p class="name">{feed.name}</p>
+          <p>{feed.username}</p>
+          <p>·</p>
+          <p>{feed.hour}</p>
+        </div>
+        <div class="post">{feed.post ? <p>{feed.post}</p> : null}</div>
+        <div class="post-img">
+          {feed.image ? <img src={feed.image} alt="image" /> : null}
+        </div>
+        <div class="buttons">
+          <div class="button-num">
+            <>
+              <button>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="icon icon-tabler icons-tabler-outline icon-tabler-message-circle"
+                >
+                  <>
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M3 20l1.3 -3.9c-2.324 -3.437 -1.426 -7.872 2.1 -10.374c3.526 -2.501 8.59 -2.296 11.845 .48c3.255 2.777 3.695 7.266 1.029 10.501c-2.666 3.235 -7.615 4.215 -11.574 2.293l-4.7 1" />
+                  </>
+                </svg>
+              </button>
+              <p>{feed.comment}</p>
+            </>
+          </div>
+          <div class="button-num">
+            <>
+              <button>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="icon icon-tabler icons-tabler-outline icon-tabler-refresh"
+                >
+                  <>
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M20 11a8.1 8.1 0 0 0 -15.5 -2m-.5 -4v4h4" />
+                    <path d="M4 13a8.1 8.1 0 0 0 15.5 2m.5 4v-4h-4" />
+                  </>
+                </svg>
+              </button>
+              <p>{feed.share}</p>
+            </>
+          </div>
+          <div class="button-num">
+            <>
+              <button>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="icon icon-tabler icons-tabler-outline icon-tabler-heart"
+                >
+                  <>
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
+                  </>
+                </svg>
+              </button>
+              <p>{feed.like}</p>
+            </>
+          </div>
+          <div class="button-num">
+            <>
+              <button>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="icon icon-tabler icons-tabler-outline icon-tabler-bookmark"
+                >
+                  <>
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M18 7v14l-6 -4l-6 4v-14a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4z" />
+                  </>
+                </svg>
+              </button>
+              <p>{feed.bookmarks}</p>
+            </>
+          </div>
+          <button>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="icon icon-tabler icons-tabler-outline icon-tabler-dots"
+            >
+              <>
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M5 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                <path d="M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                <path d="M19 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+              </>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </main>
+  ))
+}
+
+<style>
+  .container {
+    display: flex;
+    gap: 1rem;
+    padding: 20px 24px;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    width: 100%;
+  }
+  .profile img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+  }
+
+  .account {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--grey3);
+  }
+
+  .name {
+    color: var(--grey1);
+  }
+
+  .post {
+    padding: 0;
+    margin: 0;
+
+    & p {
+      text-wrap: pretty;
+    }
+  }
+
+  .post-img {
+    width: 100%;
+    height: 100%;
+
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 14px;
+      aspect-ratio: 16 / 9;
+    }
+  }
+
+  .button-num {
+    display: flex;
+    align-items: center;
+    gap: 0.255rem;
+  }
+  .buttons {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    justify-content: space-between;
+
+    & button {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+    }
+
+    & svg {
+      width: 18px;
+      height: 18px;
+      color: var(--grey3);
+      transition: color 0.2s ease-in-out;
+
+      &:hover {
+        color: var(--grey1);
+      }
+    }
+  }
+</style>
